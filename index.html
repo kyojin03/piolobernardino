@@ -1,78 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Piolo Bernardino | Web Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Piolo Bernardino | Advanced Technical Support Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f4f6f8;
+      font-family: 'Roboto', sans-serif;
+      background: #f5f7fa;
       color: #333;
+      line-height: 1.6;
     }
+
+    a { color: #2563eb; text-decoration: none; }
+
     header {
-      background: #1f2937;
+      background: linear-gradient(135deg, #1f2937, #111827);
       color: #fff;
-      padding: 40px 20px;
+      padding: 70px 20px;
       text-align: center;
     }
+
     .profile-pic {
-      width: 140px;
-      height: 140px;
+      width: 160px;
+      height: 160px;
       border-radius: 50%;
       object-fit: cover;
       border: 4px solid #ffffff;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
     }
+
+    .profile-pic:hover { transform: scale(1.05); }
+
     header h1 {
-      margin: 0;
-      font-size: 2.5rem;
+      font-size: 2.8rem;
+      margin-bottom: 10px;
     }
+
     header p {
-      margin-top: 10px;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       color: #d1d5db;
     }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background: #ffffff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 15px 0;
+    }
+
+    nav ul li { margin: 0 18px; }
+
+    nav ul li a {
+      font-weight: 500;
+      color: #111827;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover { color: #2563eb; }
+
     section {
       max-width: 1000px;
       margin: auto;
-      padding: 40px 20px;
+      padding: 70px 20px;
     }
+
     h2 {
-      border-bottom: 3px solid #1f2937;
+      font-size: 1.9rem;
+      color: #111827;
+      border-bottom: 3px solid #2563eb;
       display: inline-block;
-      padding-bottom: 5px;
-      margin-bottom: 20px;
+      padding-bottom: 6px;
+      margin-bottom: 30px;
     }
+
     .card {
-      background: #fff;
-      border-radius: 10px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 28px;
+      margin-bottom: 28px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    ul {
-      padding-left: 20px;
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
     }
+
     .skills span {
       display: inline-block;
-      background: #1f2937;
-      color: #fff;
-      padding: 8px 12px;
-      border-radius: 20px;
-      margin: 5px;
-      font-size: 0.9rem;
+      background: #2563eb;
+      color: #ffffff;
+      padding: 10px 16px;
+      border-radius: 25px;
+      margin: 6px;
+      font-size: 0.95rem;
+      transition: background 0.3s;
     }
+
+    .skills span:hover { background: #1d4ed8; }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
+    }
+
+    .cert-links li {
+      margin-bottom: 12px;
+      font-size: 1.05rem;
+    }
+
     footer {
       background: #1f2937;
       color: #d1d5db;
       text-align: center;
-      padding: 20px;
+      padding: 28px 20px;
     }
-    a {
-      color: #2563eb;
-      text-decoration: none;
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.2rem; }
+      header p { font-size: 1rem; }
     }
   </style>
 </head>
@@ -84,7 +145,17 @@
   <p>IT Graduate | Technical Support Specialist | CSC Professional Eligible</p>
 </header>
 
-<section>
+<nav>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#certificates">Certificates</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section id="about">
   <h2>About Me</h2>
   <div class="card">
     <p>
@@ -96,7 +167,7 @@
   </div>
 </section>
 
-<section>
+<section id="skills">
   <h2>Technical Skills</h2>
   <div class="card skills">
     <span>Hardware & Software Troubleshooting</span>
@@ -110,49 +181,46 @@
   </div>
 </section>
 
-<section>
+<section id="projects">
   <h2>Relevant Experience & Projects</h2>
-  <div class="card">
-    <h3>Laboratory Usage Management System</h3>
-    <p>
-      Provided system setup, troubleshooting, and user assistance for a web-based laboratory management system.
-      Assisted users with access issues, basic system navigation, and report generation.
-    </p>
-  </div>
-
-  <div class="card">
-    <h3>Technical Support Tasks (Academic & Personal)</h3>
-    <p>
-      Performed computer setup, OS installation, software troubleshooting, printer configuration,
-      and basic network support for students and staff.
-    </p>
-  </div>
-</section>
-
-<section>
-  <h2>Education</h2>
-  <div class="card">
-    <p><strong>Bachelor of Science in Information Technology</strong></p>
-    <p>Professional Education Program (ongoing)</p>
+  <div class="projects-grid">
+    <div class="card">
+      <h3>Laboratory Usage Management System</h3>
+      <p>
+        Provided system setup, troubleshooting, and user assistance for a web-based laboratory management system.
+        Assisted users with access issues, basic system navigation, and report generation.
+      </p>
+    </div>
+    <div class="card">
+      <h3>Technical Support Tasks (Academic & Personal)</h3>
+      <p>
+        Performed computer setup, OS installation, software troubleshooting, printer configuration,
+        and basic network support for students and staff.
+      </p>
+    </div>
   </div>
 </section>
 
-<section>
-  <h2>Certifications & Eligibility</h2>
+<section id="certificates">
+  <h2>Certificates & Eligibility</h2>
   <div class="card">
-    <ul>
-      <li><strong>Civil Service Commission (CSC) Professional Eligibility</strong> – Passed</li>
-      <li><strong>Certiport Certification</strong> – Passed</li>
+    <ul class="cert-links">
+      <li><strong>Civil Service Commission (CSC) Professional Eligibility</strong> – Passed
+        (<a href="CSC_Certificate.pdf" target="_blank">View Certificate (PDF)</a>)
+      </li>
+      <li><strong>Certiport Certification</strong> – Passed
+        (<a href="Certiport_Certificate.pdf" target="_blank">View Certificate (PDF)</a>)
+      </li>
     </ul>
   </div>
 </section>
 
-<section>
+<section id="contact">
   <h2>Contact</h2>
   <div class="card">
     <p>Email: pilbrnrdno@gmail.com</p>
     <p>Phone: 09672145454</p>
-    <p>GitHub: <a href="#">https://github.com/kyojin03</a></p>
+    <p>GitHub: <a href="https://github.com/kyojin03">https://github.com/kyojin03</a></p>
   </div>
 </section>
 
