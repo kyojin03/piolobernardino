@@ -54,8 +54,8 @@
 
     /* Animated Skill Bars */
     .skill-bar { height: 20px; background: #e5e7eb; border-radius: 10px; margin: 10px 0; overflow: hidden; }
-    .skill-fill { height: 100%; width: 0%; background: #2563eb; border-radius: 10px; transition: width 1.5s; }
-    body.dark-mode .skill-fill { background: #60a5fa; }
+    .skill-fill { height: 100%; width: 0%; background: #2563eb; border-radius: 10px; transition: width 1.5s; text-align: right; padding-right: 8px; color: #fff; font-weight: 500; line-height: 20px; }
+    body.dark-mode .skill-fill { background: #60a5fa; color: #111827; }
   </style>
 </head>
 <body>
@@ -100,12 +100,11 @@
     <span>MS Office Support</span>
     <span>Basic HTML & CSS</span>
     <span>Customer & User Support</span>
-    <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
-    <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+    <div class="skill-bar"><div class="skill-fill" data-width="90%">90%</div></div>
+    <div class="skill-bar"><div class="skill-fill" data-width="85%">85%</div></div>
   </div>
 </section>
 
-<!-- ===== ADDED EXPERIENCE SECTION START ===== -->
 <section id="experience">
   <h2>Professional Experience</h2>
 
@@ -138,7 +137,6 @@
     </ul>
   </div>
 </section>
-<!-- ===== ADDED EXPERIENCE SECTION END ===== -->
 
 <section id="projects">
   <h2>Relevant Experience & Projects</h2>
@@ -158,8 +156,18 @@
   <h2>Certificates & Eligibility</h2>
   <div class="card">
     <ul class="cert-links">
-      <li><strong>CSC Professional Eligibility</strong> – Passed (<a href="CSC_Certificate.pdf" target="_blank">View PDF</a>)</li>
-      <li><strong>Certiport Certification</strong> – Passed (<a href="Certiport_Certificate.pdf" target="_blank">View PDF</a>)</li>
+      <li>
+        <strong>CSC Professional Eligibility</strong> – Passed 
+        (<a href="CSC_Certificate.pdf" target="_blank">View PDF</a>)
+      </li>
+      <li>
+        <strong>Certiport Certification</strong> – Passed 
+        (<a href="Certiport_Certificate.pdf" target="_blank">View PDF</a>)
+      </li>
+      <li>
+        <strong>English Proficiency Certificate</strong> – Passed 
+        (<a href="pio.pdf" target="_blank">View PDF</a>)
+      </li>
     </ul>
   </div>
 </section>
@@ -167,9 +175,9 @@
 <section id="contact">
   <h2>Contact</h2>
   <div class="card">
-    <p>Email: pilbrnrdno@gmail.com</p>
-    <p>Phone: 09672145454</p>
-    <p>GitHub: <a href="https://github.com/kyojin03">https://github.com/kyojin03</a></p>
+    <p>Email: <a href="mailto:pilbrnrdno@gmail.com">pilbrnrdno@gmail.com</a></p>
+    <p>Phone: <a href="tel:09672145454">09672145454</a></p>
+    <p>GitHub: <a href="https://github.com/kyojin03" target="_blank">kyojin03</a></p>
   </div>
 </section>
 
@@ -183,16 +191,18 @@
   }
 
   // Animate skill bars on scroll
-  window.addEventListener('scroll', function() {
+  function animateSkills() {
     const skills = document.querySelectorAll('.skill-fill');
     skills.forEach(skill => {
-      const position = skill.getBoundingClientRect().top;
-      const windowHeight = window.innerHeight;
-      if(position < windowHeight) {
-        skill.style.width = skill.style.width;
+      const rect = skill.getBoundingClientRect();
+      if(rect.top < window.innerHeight - 50) {
+        skill.style.width = skill.getAttribute('data-width');
       }
     });
-  });
+  }
+
+  window.addEventListener('scroll', animateSkills);
+  window.addEventListener('load', animateSkills);
 </script>
 
 </body>
